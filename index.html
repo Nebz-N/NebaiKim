@@ -198,12 +198,25 @@ section{padding:72px 0;border-bottom:1px solid var(--line)}
 }
 .platforms a:hover,.platforms button:hover{background:var(--ink);color:var(--cream)}
 .platforms button.active{background:var(--ink);color:var(--cream)}
-.show-player{display:none;padding:0 24px 24px}
-.show-player.open{display:block}
+.show-player{padding:0 24px 24px}
 .show-player .frame{box-shadow:none;border:1px solid var(--line)}
 .show-player .note{
   font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:10px;
+}
+/* vertical frames for TikTok */
+.frame-vert{
+  position:relative;width:100%;max-width:325px;aspect-ratio:9/16;
+  border-radius:var(--radius);overflow:hidden;background:var(--ink);
+  box-shadow:0 14px 34px rgba(25,23,18,.12);
+}
+.frame-vert iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.shorts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;justify-items:center}
+@media (max-width:880px){.shorts{grid-template-columns:1fr}}
+.short-item{display:flex;flex-direction:column;align-items:center;gap:14px}
+.short-item .short-label{
+  font-family:'Syne',sans-serif;font-size:.74rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
 }
 .hm .band{background:linear-gradient(90deg,var(--hm-purple),var(--hm-coral))}
 .hm .role{color:var(--hm-coral)}
@@ -358,6 +371,17 @@ footer{padding:34px 0 44px}
                 </div>
               </div>
 
+              <div class="work-item">
+                <div class="frame-vert">
+                  <iframe data-src="https://www.tiktok.com/embed/v2/7536138031527464198" title="International Youth Day brand film" loading="lazy" allow="encrypted-media; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="credit">
+                  <h4>International Youth Day Commemoration</h4>
+                  <div class="roles"><span class="role-chip">Video Editor</span><span class="role-chip">Videographer</span></div>
+                  <p>A brand commemoration film for International Youth Day, published on NAMU Africa's TikTok. Built for the vertical feed: fast hooks, tight rhythm and a message that lands inside the first seconds.</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -430,16 +454,16 @@ footer{padding:34px 0 44px}
             <h3>DevCom Africa</h3>
             <p>Conversations on communication and Africa's development agenda. I cut the weekly long-form episodes and the reels that travel on TikTok and Instagram.</p>
             <div class="platforms">
-              <button type="button" class="yt-toggle" data-target="dc-player">YouTube</button>
+              <a href="https://www.youtube.com/@PodcastDevComAfrica" target="_blank" rel="noopener">YouTube</a>
               <a href="https://www.tiktok.com/@devcom.africa" target="_blank" rel="noopener">TikTok</a>
               <a href="https://www.instagram.com/devcomafrica/" target="_blank" rel="noopener">Instagram</a>
             </div>
           </div>
           <div class="show-player" id="dc-player">
             <div class="frame">
-              <iframe data-src="https://www.youtube.com/embed/videoseries?list=UUs4rlpBvh69y4nSAArxgidg" title="DevCom Africa latest episodes" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/I83u4tme8Dc" title="DevCom Africa featured episode" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <p class="note">Latest episodes, playing in order</p>
+            <p class="note">Featured episode</p>
           </div>
         </article>
 
@@ -450,7 +474,7 @@ footer{padding:34px 0 44px}
             <h3>Her Memoir</h3>
             <p>A podcast celebrating remarkable women across Africa's political, corporate and public life. I produce and edit across YouTube and short-form social.</p>
             <div class="platforms">
-              <button type="button" class="yt-toggle" data-target="hm-player">YouTube</button>
+              <a href="https://www.youtube.com/@ItsHerMemoir" target="_blank" rel="noopener">YouTube</a>
               <a href="https://open.spotify.com/show/2tITX5OusR758RKPhZ7oC4" target="_blank" rel="noopener">Spotify</a>
               <a href="https://www.tiktok.com/@hermemoir_ke" target="_blank" rel="noopener">TikTok</a>
               <a href="https://www.instagram.com/hermemoir_ke/" target="_blank" rel="noopener">Instagram</a>
@@ -458,9 +482,9 @@ footer{padding:34px 0 44px}
           </div>
           <div class="show-player" id="hm-player">
             <div class="frame">
-              <iframe data-src="https://www.youtube.com/embed/videoseries?list=UUnEZULh5eOosHSHNQhjBMVw" title="Her Memoir latest episodes" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/x_vOPoGApWA" title="Her Memoir featured episode" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <p class="note">Latest episodes, playing in order</p>
+            <p class="note">Featured episode</p>
           </div>
         </article>
 
@@ -471,16 +495,16 @@ footer{padding:34px 0 44px}
             <h3>Frequency Z</h3>
             <p>The creative media platform I co-founded. Young voices on development, empowerment and the change we want to see, plus Open Mic sessions and reels.</p>
             <div class="platforms">
-              <button type="button" class="yt-toggle" data-target="fz-player">YouTube</button>
+              <a href="https://www.youtube.com/@FrequencyZee" target="_blank" rel="noopener">YouTube</a>
               <a href="https://www.tiktok.com/@frequency_zee" target="_blank" rel="noopener">TikTok</a>
               <a href="https://www.instagram.com/frequencyz_/" target="_blank" rel="noopener">Instagram</a>
             </div>
           </div>
           <div class="show-player" id="fz-player">
             <div class="frame">
-              <iframe data-src="https://www.youtube.com/embed/videoseries?list=UUoh3W0lP9sfkCb2s-DNLPnw" title="Frequency Z latest episodes" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/SUAO0GJ9aBk" title="Frequency Z featured episode" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <p class="note">Latest episodes, playing in order</p>
+            <p class="note">Featured episode</p>
           </div>
         </article>
 
@@ -491,18 +515,47 @@ footer{padding:34px 0 44px}
             <h3>Surrendered with Rachel Kimani</h3>
             <p>Long-form YouTube show. I ran the full production pipeline, and an analytics-informed content strategy delivered a 20% increase in viewer retention.</p>
             <div class="platforms">
-              <button type="button" class="yt-toggle" data-target="sr-player">YouTube</button>
+              <a href="https://www.youtube.com/@surrenderedwithrachelkiman8064" target="_blank" rel="noopener">YouTube</a>
               <a href="https://creators.spotify.com/pod/show/nebaikimani" target="_blank" rel="noopener">Spotify</a>
             </div>
           </div>
           <div class="show-player" id="sr-player">
             <div class="frame">
-              <iframe data-src="https://www.youtube.com/embed/videoseries?list=UU0XB2o02evVb5uiq4BIeSLg" title="Surrendered with Rachel Kimani episodes" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/NNrEo_QHtj4" title="Surrendered with Rachel Kimani featured episode" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <p class="note">Latest episodes, playing in order</p>
+            <p class="note">Featured episode</p>
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- SHORT-FORM -->
+  <section aria-label="Short-form work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Short-Form</h2>
+      </div>
+      <div class="shorts">
+        <div class="short-item">
+          <p class="short-label">Frequency Z</p>
+          <div class="frame-vert">
+            <iframe src="https://www.tiktok.com/embed/v2/7642246046466247957" title="Frequency Z featured TikTok" loading="lazy" allow="encrypted-media; fullscreen" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="short-item">
+          <p class="short-label">DevCom Africa</p>
+          <div class="frame-vert">
+            <iframe src="https://www.tiktok.com/embed/v2/7617786671106428177" title="DevCom Africa featured TikTok" loading="lazy" allow="encrypted-media; fullscreen" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="short-item">
+          <p class="short-label">Her Memoir</p>
+          <div class="frame-vert">
+            <iframe src="https://www.tiktok.com/embed/v2/7636366398935125268" title="Her Memoir featured TikTok" loading="lazy" allow="encrypted-media; fullscreen" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -568,18 +621,6 @@ document.querySelectorAll('.acc-head').forEach(function(head){
     acc.classList.toggle('open', !isOpen);
     head.setAttribute('aria-expanded', String(!isOpen));
     if(!isOpen) loadFrames(acc);
-  });
-});
-
-// Podcast YouTube toggles
-document.querySelectorAll('.yt-toggle').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var player = document.getElementById(btn.dataset.target);
-    var isOpen = player.classList.contains('open');
-    player.classList.toggle('open', !isOpen);
-    btn.classList.toggle('active', !isOpen);
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    if(!isOpen) loadFrames(player);
   });
 });
 </script>
