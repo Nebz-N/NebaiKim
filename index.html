@@ -187,7 +187,14 @@ section{padding:72px 0;border-bottom:1px solid var(--line)}
   letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;
 }
 .show h3{font-weight:600;font-size:1.45rem;letter-spacing:-.01em;margin-bottom:10px}
-.show p{font-size:.96rem;color:var(--ink-soft);margin-bottom:22px;flex:1}
+.show p{font-size:.96rem;color:var(--ink-soft);margin-bottom:18px;flex:1}
+.mini-stats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.ms{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.ms .n{font-weight:600;font-size:1.05rem;letter-spacing:-.01em;line-height:1.2}
+.ms .l{
+  font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;
+}
 .platforms{display:flex;flex-wrap:wrap;gap:10px}
 .platforms a,.platforms button{
   font-family:'Syne',sans-serif;font-size:.74rem;font-weight:700;
@@ -406,17 +413,56 @@ footer{padding:34px 0 44px}
           </div>
         </div>
 
-        <!-- 04 AWARDS -->
+        <!-- 04 LIVE & EVENT PRODUCTION -->
         <div class="acc">
           <button class="acc-head" aria-expanded="false" aria-controls="panel-04">
             <span class="num">04</span>
+            <span class="cat">
+              <h3>Live &amp; Event Production</h3>
+              <span class="tags"><span class="tag">Pan-African webinars</span><span class="tag">2 editions</span><span class="tag">Production Lead</span></span>
+            </span>
+            <span class="chev" aria-hidden="true">+</span>
+          </button>
+          <div class="panel" id="panel-04">
+            <div class="work-grid">
+
+              <div class="work-item">
+                <div class="frame">
+                  <iframe data-src="https://www.youtube.com/embed/OkbLpgRdVUc" title="DevCom Africa continental webinar, first edition" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="credit">
+                  <h4>Communication: Africa's Most Overlooked Development Infrastructure</h4>
+                  <div class="roles"><span class="role-chip">Production Lead</span></div>
+                  <p>A high-level continental webinar convened by DevCom Africa, March 2026. I led the live production end to end: 106 participants across Botswana, Kenya, Senegal, Uganda and Mauritius, with five speakers bridging Anglophone and Francophone Africa, delivered as a clean, broadcast-grade stream.</p>
+                </div>
+              </div>
+
+              <div class="work-item">
+                <div class="frame">
+                  <iframe data-src="https://www.youtube.com/embed/au54yu4DGq8" title="DevCom Africa Africa Day webinar, second edition" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="credit">
+                  <h4>Who Tells Africa's Story, and Who Benefits From It?</h4>
+                  <div class="roles"><span class="role-chip">Production Lead</span></div>
+                  <p>The Africa Day edition, May 2026, with a panel spanning South Africa, Cameroon, Ghana and Kenya, including a global communications director at Mars and a government ministry director of communication. Two editions in, the series runs as a repeatable live production system.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 AWARDS -->
+        <div class="acc">
+          <button class="acc-head" aria-expanded="false" aria-controls="panel-05">
+            <span class="num">05</span>
             <span class="cat">
               <h3>Awards &amp; Recognition</h3>
               <span class="tags"><span class="tag">VUKA Film Festival 2025</span><span class="tag">Two awards</span><span class="tag">Reuters certified</span></span>
             </span>
             <span class="chev" aria-hidden="true">+</span>
           </button>
-          <div class="panel" id="panel-04">
+          <div class="panel" id="panel-05">
             <div class="award-card">
               <p class="fest">VUKA Film Festival 2025 · Nairobi, Kenya</p>
               <h4>1st Runner-Up, Best Director</h4>
@@ -454,6 +500,11 @@ footer{padding:34px 0 44px}
             <p class="role">Producer &amp; Editor · NAMU Africa</p>
             <h3>DevCom Africa</h3>
             <p>Conversations on communication and Africa's development agenda. I cut the weekly long-form episodes and the reels that travel on TikTok and Instagram.</p>
+            <div class="mini-stats">
+              <div class="ms"><div class="n">11 + 15</div><div class="l">Episodes + shorts cut</div></div>
+              <div class="ms"><div class="n">1,850 hrs</div><div class="l">Watch time</div></div>
+              <div class="ms"><div class="n">92%</div><div class="l">Positive sentiment</div></div>
+            </div>
             <div class="platforms">
               <a href="https://www.youtube.com/@PodcastDevComAfrica" target="_blank" rel="noopener">YouTube</a>
               <a href="https://www.tiktok.com/@devcom.africa" target="_blank" rel="noopener">TikTok</a>
@@ -474,6 +525,11 @@ footer{padding:34px 0 44px}
             <p class="role">Producer &amp; Editor · NAMU Africa</p>
             <h3>Her Memoir</h3>
             <p>A podcast celebrating remarkable women across Africa's political, corporate and public life. I produce and edit across YouTube and short-form social.</p>
+            <div class="mini-stats">
+              <div class="ms"><div class="n">12</div><div class="l">Episodes cut</div></div>
+              <div class="ms"><div class="n">962 hrs</div><div class="l">Watch time</div></div>
+              <div class="ms"><div class="n">96.5%</div><div class="l">Engaged views</div></div>
+            </div>
             <div class="platforms">
               <a href="https://www.youtube.com/@ItsHerMemoir" target="_blank" rel="noopener">YouTube</a>
               <a href="https://open.spotify.com/show/2tITX5OusR758RKPhZ7oC4" target="_blank" rel="noopener">Spotify</a>
@@ -495,6 +551,11 @@ footer{padding:34px 0 44px}
             <p class="role">Co-founder &amp; Host</p>
             <h3>Frequency Z</h3>
             <p>The creative media platform I co-founded. Young voices on development, empowerment and the change we want to see, plus Open Mic sessions and reels.</p>
+            <div class="mini-stats">
+              <div class="ms"><div class="n">10</div><div class="l">Episodes shipped</div></div>
+              <div class="ms"><div class="n">0 → 1</div><div class="l">Platform built from zero</div></div>
+              <div class="ms"><div class="n">3</div><div class="l">Platforms</div></div>
+            </div>
             <div class="platforms">
               <a href="https://www.youtube.com/@FrequencyZee" target="_blank" rel="noopener">YouTube</a>
               <a href="https://www.tiktok.com/@frequency_zee" target="_blank" rel="noopener">TikTok</a>
@@ -514,7 +575,11 @@ footer{padding:34px 0 44px}
           <div class="body">
             <p class="role">Production Manager · Producer · Editor</p>
             <h3>Surrendered with Rachel Kimani</h3>
-            <p>Long-form YouTube show. I ran the full production pipeline, and an analytics-informed content strategy delivered a 20% increase in viewer retention.</p>
+            <p>Long-form YouTube show. I ran the full production pipeline with an analytics-informed content strategy.</p>
+            <div class="mini-stats">
+              <div class="ms"><div class="n">+20%</div><div class="l">Viewer retention</div></div>
+              <div class="ms"><div class="n">Full</div><div class="l">Pipeline ownership</div></div>
+            </div>
             <div class="platforms">
               <a href="https://www.youtube.com/@surrenderedwithrachelkiman8064" target="_blank" rel="noopener">YouTube</a>
               <a href="https://creators.spotify.com/pod/show/nebaikimani" target="_blank" rel="noopener">Spotify</a>
