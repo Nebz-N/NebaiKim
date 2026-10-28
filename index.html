@@ -198,6 +198,12 @@ a{color:inherit}
 .pp.is-paused .i-pause{display:none}
 .pp.is-paused .i-play{display:block}
 
+.nk-player{position:relative;background:#000;min-height:240px;height:100%;overflow:hidden}
+.nk-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.nk-player .vt-img,.nk-player .vt-art{position:absolute;inset:0}
+@media (max-width:760px){.nk-player{min-height:0;aspect-ratio:16/9;height:auto}}
+.vt:has(.vt-cap) .vt-play{top:38%}.nk-box .vt:has(.vt-cap) .vt-play{top:50%}
+
 body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.55}
 h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0;text-transform:uppercase;letter-spacing:.015em;line-height:.95;text-wrap:balance}
 .wrap{padding-left:var(--gx);padding-right:var(--gxr)}
@@ -401,7 +407,7 @@ section{padding-block:clamp(56px,8vw,104px) 0}
   <div class="lead">
     <p class="who">Nebai Kimani</p>
     <h1>Digital Communications Specialist</h1>
-    <p class="sub">Video, design, social media and podcasts, planned and published end to end.</p>
+    <p class="sub">Creating video, design, social media and podcast content that tells stories clearly.</p>
     <div class="cta"><a class="btn pri" href="#results">See the results</a><a class="btn ghost" href="#watch">Watch the work</a></div>
   </div>
   <div class="ctl"><span class="count" aria-live="off"></span><div class="ticks" role="group" aria-label="Slides"></div><span id="ppSlot"></span></div>
@@ -650,9 +656,16 @@ NK.bindThumbs=function(root){
     if(img.complete){if(img.naturalWidth)NK.thOk(img);else NK.thErr(img)}
   });
 };
+NK.cap=function(v){return /^(impact|nalsa|all)$/.test(v.id)?'<span class="vt-cap"><b>'+NK.esc(v.t)+'</b><small>'+NK.esc(v.k)+'</small></span>':''};
+NK.embed=function(v){
+  if(v.yt)return 'https://www.youtube-nocookie.com/embed/'+v.yt+'?autoplay=1&rel=0&playsinline=1';
+  if(v.drive)return 'https://drive.google.com/file/d/'+v.drive+'/preview';
+  if(/facebook\.com/.test(v.url))return 'https://www.facebook.com/plugins/video.php?href='+encodeURIComponent(v.url)+'&show_text=false&autoplay=true';
+  return '';
+};
 NK.videoTile=function(v,i){
-  if(v.folder)return '<a class="vt" href="'+v.url+'" target="_blank" rel="noopener" aria-label="'+NK.esc(v.t)+' (opens the video folder)">'+NK.thumbInner(v)+'<span class="vt-play"></span><span class="vt-cap"><b>'+NK.esc(v.t)+'</b><small>'+NK.esc(v.k)+'</small></span></a>';
-  return '<button class="vt" type="button" data-v="'+i+'" aria-label="Open '+NK.esc(v.t)+'">'+NK.thumbInner(v)+'<span class="vt-play"></span><span class="vt-cap"><b>'+NK.esc(v.t)+'</b><small>'+NK.esc(v.k)+'</small></span></button>';
+  if(v.folder)return '<a class="vt" href="'+v.url+'" target="_blank" rel="noopener" aria-label="'+NK.esc(v.t)+' (opens the video folder)">'+NK.thumbInner(v)+'<span class="vt-play"></span>'+NK.cap(v)+'</a>';
+  return '<button class="vt" type="button" data-v="'+i+'" aria-label="Open '+NK.esc(v.t)+'">'+NK.thumbInner(v)+'<span class="vt-play"></span>'+NK.cap(v)+'</button>';
 };
 
 /* ================= modal and lightbox ================= */
@@ -696,11 +709,12 @@ NK.gallery=function(items,i){
   modal.setAttribute('aria-label','Image viewer');modal.hidden=false;document.body.style.overflow='hidden';showGal();
 };
 NK.openVideo=function(v){
-  var h='<div class="nk-box"><div class="vt" aria-hidden="true">'+NK.thumbInner(v)+'<span class="vt-play"></span></div><div class="nk-info"><p class="nk-kind">'+NK.esc(v.k)+'</p><h3>'+NK.esc(v.t)+'</h3>'+
+  var em=NK.embed(v);
+  var h='<div class="nk-box"><div class="nk-player">'+(em?'<iframe src="'+em+'" title="'+NK.esc(v.t)+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>':NK.thumbInner(v))+'</div><div class="nk-info"><p class="nk-kind">'+NK.esc(v.k)+'</p><h3>'+NK.esc(v.t)+'</h3>'+
    (v.role?'<p class="nk-kind" style="color:var(--fg)">'+NK.esc(v.role)+(v.tools?' Tools: '+NK.esc(v.tools)+'.':'')+'</p>':'')+
    (v.ch?'<div class="nk-beat"><b>Challenge</b><p>'+NK.esc(v.ch)+'</p></div>':'')+
    (v.so?'<div class="nk-beat"><b>Solution</b><p>'+NK.esc(v.so)+'</p></div>':'')+
-   '<a class="nk-watch" href="'+v.url+'" target="_blank" rel="noopener">Watch</a></div></div>';
+   '<a class="nk-watch" href="'+v.url+'" target="_blank" rel="noopener">Open in a new tab</a></div></div>';
   galItems=[];openModal(h,v.t);NK.bindThumbs(modal);
 };
 NK.bindVideos=function(root){
